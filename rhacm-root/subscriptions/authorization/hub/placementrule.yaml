@@ -8,4 +8,4 @@ spec:
   clusterSelector:
     matchLabels:
       vendor: OpenShift
-      local-cluster: true
+      local-cluster: 'true'
