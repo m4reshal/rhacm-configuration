@@ -14,8 +14,8 @@ spec:
       operator: In
       values:
       - OpenShift
-    - key: purpose
-      operator: In
-      values:
-      - development
-      - production
+    #- key: purpose
+    #  operator: In
+    #  values:
+    #  - development
+    #  - production
