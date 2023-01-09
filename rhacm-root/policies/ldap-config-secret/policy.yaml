@@ -35,5 +35,5 @@ spec:
               name: htpass-secret
               namespace: openshift-config
             data: 
-              bindPassword: |
+              htpasswd: |
                 {{hub fromSecret "acm-secrets" "htpass-secret" "htpasswd" hub}}
