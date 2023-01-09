@@ -1,0 +1,50 @@
+---
+apiVersion: policy.open-cluster-management.io/v1
+kind: Policy
+metadata:
+  name: ldap-authentication
+  namespace: acm-policies
+spec:
+  remediationAction: enforce
+  disabled: false
+  policy-templates:
+  - objectDefinition:
+      apiVersion: policy.open-cluster-management.io/v1
+      kind: ConfigurationPolicy
+      metadata:
+        name: ldap-authentication
+      spec:
+        remediationAction: enforce
+        severity: medium
+        object-templates:
+        - complianceType: musthave
+          objectDefinition:
+            apiVersion: config.openshift.io/v1
+            kind: OAuth
+            metadata:
+              name: cluster
+            spec:
+              identityProviders:
+              - ldap:
+                  attributes:
+                    email: []
+                    id:
+                    - sAMAccountName
+                    name:
+                    - cn
+                    preferredUsername:
+                    - sAMAccountName
+                  bindDN: CN=svcintuser,OU=konsalt,DC=konsalt,DC=info
+                  bindPassword:
+                    name: ldap-bind-password
+                  insecure: true
+                  url: ldap://192.168.1.10:389/DC=konsalt,DC=info?sAMAccountName?sub
+                mappingMethod: claim
+                name: ldap
+                type: LDAP
+              - htpasswd:
+                  fileData:
+                    name: htpass-secret
+                mappingMethod: claim
+                name: htpasswd_provider
+                type: HTPasswd
