@@ -11,5 +11,5 @@ subjects:
   kind: User
   name: system:admin
 - apiGroup: rbac.authorization.k8s.io
-  kind: User
-  name: admin
+  kind: Group
+  name: REDHAT_ADMINS

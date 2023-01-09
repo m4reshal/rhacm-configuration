@@ -9,5 +9,6 @@ metadata:
 spec:
   pathname: https://github.com/m4reshal/rhacm-configuration
   type: Git
-  secretRef:
-    name: acm-github
+  #secretRef:
+  #  name: acm-github
+

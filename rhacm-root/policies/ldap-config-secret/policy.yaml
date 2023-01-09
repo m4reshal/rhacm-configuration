@@ -24,9 +24,9 @@ spec:
             metadata:
               name: ldap-bind-password
               namespace: openshift-config
-            data: 
+            data:
               bindPassword: |
-                {{hub fromSecret "acm-secrets" "ldap-secrets" "ldap-bind-password" hub}} 
+                {{hub fromSecret "acm-secrets" "ldap-secrets" "ldap-bind-password" hub}}
         - complianceType: musthave
           objectDefinition:
             apiVersion: v1
@@ -36,4 +36,4 @@ spec:
               namespace: openshift-config
             data: 
               bindPassword: |
-                {{hub fromSecret "acm-secrets" "htpass-secret" "htpasswd" hub}} 
+                {{hub fromSecret "acm-secrets" "htpass-secret" "htpasswd" hub}}
