@@ -1,0 +1,15 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+- namespace-acm-configuration.yaml
+- namespace-acm-policies.yaml
+- namespace-acm-secrets.yaml
+- namespace-acm-subscriptions.yaml
+- secret-acm-github.yaml
+- channel-applications.yaml
+- channel-configuration.yaml
+- placementrule.yaml
+- subscription.yaml
+- application.yaml

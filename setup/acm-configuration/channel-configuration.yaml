@@ -1,0 +1,13 @@
+---
+apiVersion: apps.open-cluster-management.io/v1
+kind: Channel
+metadata:
+  name: acm-configuration
+  namespace: acm-configuration
+  annotations:
+    apps.open-cluster-management.io/reconcile-rate: high
+spec:
+  pathname: https://github.com/m4reshal/rhacm-configuration
+  type: Git
+  secretRef:
+    name: acm-github
